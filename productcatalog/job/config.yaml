@@ -1,0 +1,20 @@
+apiVersion: v2
+actions:
+  - name: "Launch K6 test"
+    events:
+      - name: "sh.keptn.event.k6component.triggered"
+    tasks:
+      - name: "k6-component"
+        maxPollDuration: 900
+        args: [ "-u", "50", "-d", "10m" ]
+        image: hrexed/k6-productcatalog:0.1
+        env:
+          - name: PROJECT
+            value: "$.data.project"
+            valueFrom: event
+          - name: STAGE
+            value: "$.data.stage"
+            valueFrom: event
+          - name: K6_PROMETHEUS_REMOTE_URL
+            value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
+            valueFrom: string
