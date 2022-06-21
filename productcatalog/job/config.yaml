@@ -2,12 +2,12 @@ apiVersion: v2
 actions:
   - name: "Launch K6 test"
     events:
-      - name: "sh.keptn.event.k6component.triggered"
+      - name: "sh.keptn.event.k6-component.triggered"
     tasks:
       - name: "k6-component"
         maxPollDuration: 900
         args: [ "-u", "50", "-d", "10m" ]
-        image: hrexed/k6-productcatalog:0.1
+        image: hrexed/k6-productcatalog:0.2
         env:
           - name: PROJECT
             value: "$.data.project"
