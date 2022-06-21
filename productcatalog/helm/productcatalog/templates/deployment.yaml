@@ -21,7 +21,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: {{ .Values.container.name }}
-        image: {{ .Values.image.repository }}
+        image: {{ .Values.image }}
         ports:
         - containerPort: {{ .Values.container.containerport}}
         env: {{- with .Values.container.extraEnv }}{{ toYaml . | nindent 8 }}{{- end }}
