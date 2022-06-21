@@ -4,6 +4,7 @@ metadata:
   name: productcatalogservice
   namespace: {{ .Release.Namespace }}
 spec:
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: productcatalog
@@ -16,7 +17,6 @@ spec:
         service: productcatalogservice
         product: hipster-shop
     spec:
-      replicas: {{ .Values.replicaCount }}
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       containers:
