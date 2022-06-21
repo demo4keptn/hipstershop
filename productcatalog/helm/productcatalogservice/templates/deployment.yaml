@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productcatalogservice
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: productcatalog
+      service: productcatalogservice
+      product: hipster-shop
+  template:
+    metadata:
+      labels:
+        app: productcatalog
+        service: productcatalogservice
+        product: hipster-shop
+    spec:
+      replicas: {{ .Values.replicaCount }}
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: {{ .Values.container.name }}
+        image: {{ .Values.image.repository }}
+        ports:
+        - containerPort: {{ .Values.container.containerport}}
+        env: {{- with .Values.container.extraEnv }}{{ toYaml . | nindent 8 }}{{- end }}
+        readinessProbe:
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:3550"]
+        livenessProbe:
+          exec:
+            command: ["/bin/grpc_health_probe", "-addr=:3550"]
+        resources: {{- toYaml .Values.container.resources | nindent 10 }}
+          
