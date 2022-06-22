@@ -6,7 +6,6 @@ actions:
     tasks:
       - name: "k6-component"
         maxPollDuration: 900
-        args: [ "-u", "50", "-d", "10m" ]
         image: hrexed/k6-productcatalog:0.4
         env:
           - name: PROJECT
