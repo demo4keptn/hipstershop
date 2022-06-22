@@ -1,0 +1,25 @@
+---
+spec_version: '0.1.0'
+comparison:
+  include_result_with_score: "pass"
+  aggregate_function: avg
+objectives:
+  - sli: grpc_response_time_seconds_getproducts
+    displayName: "GRPC Getproducts response time"
+    pass:
+      - criteria:
+          - "<=10"
+    warning:
+      - criteria:
+          - "<=20"
+  - sli: grpc_response_time_seconds_listproducts
+    displayName: "GRPC ListProducts response time"
+    pass:
+      - criteria:
+          - "<=15"
+    warning:
+      - criteria:
+          - "<=25"
+total_score:
+  pass: "90%"
+  warning: "75%"
