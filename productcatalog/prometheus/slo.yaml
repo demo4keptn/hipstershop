@@ -1,0 +1,35 @@
+---
+spec_version: '0.1.0'
+comparison:
+  include_result_with_score: "pass"
+  aggregate_function: avg
+objectives:
+  - sli: http_response_time_seconds_main_page
+    displayName: "HTTP  main page Response Time"
+    pass:
+      - criteria:
+          - "<=1000"
+    warning:
+      - criteria:
+          - "<=1500"
+  - sli: http_response_time_seconds_checkout_page
+    displayName: "HTTP  Checkout Response Time"
+    pass:
+      - criteria:
+          - "<=1000"
+    warning:
+      - criteria:
+          - "<=1500"
+  - sli: http_response_time_seconds_product_page
+    displayName: "HTTP product response time"
+    key_sli: true
+    pass:
+      - criteria:
+          #- "<=+100%"
+          - "<=1000"
+    warning:
+      - criteria:
+          - "<=1500"
+total_score:
+  pass: "90%"
+  warning: "75%"
