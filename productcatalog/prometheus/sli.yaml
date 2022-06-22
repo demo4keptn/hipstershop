@@ -1,0 +1,7 @@
+---
+spec_version: '1.0'
+indicators:
+  http_response_time_seconds_main_page: k6_http_req_duration_p95{method="GET",url="http://onlineboutique.34.120.85.152.nip.io/"}
+  http_response_time_seconds_checkout_page: k6_http_req_duration_p95{method="GET",url="http://onlineboutique.34.120.85.152.nip.io/cart/checkout"}
+  http_response_time_seconds_product_page: k6_http_req_duration_p95{method="GET",url=~"http://onlineboutique.34.120.85.152.nip.io/product.*"}
+  errors: k6_errors
