@@ -1,0 +1,17 @@
+apiVersion: v2
+actions:
+  - name: "Launch K6 test"
+    events:
+      - name: "sh.keptn.event.k6.triggered"
+    tasks:
+      - name: "k6"
+        maxPollDuration: 900
+        args: [ "-u", "50", "-d", "10m" ]
+        image: hrexed/k6-onlineboutique:0.1
+        env:
+          - name: FRONTEND_ADDR
+            value: "onlineboutique.34.120.85.152.nip.io"
+            valueFrom: string
+          - name: K6_PROMETHEUS_REMOTE_URL
+            value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
+            valueFrom: string
