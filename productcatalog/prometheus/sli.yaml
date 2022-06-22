@@ -1,0 +1,6 @@
+---
+spec_version: '1.0'
+indicators:
+  grpc_response_time_seconds_getproducts: k6_grpc_req_duration_p95{method="GetProduct"}
+  grpc_response_time_seconds_listproducts:  k6_grpc_req_duration_p95{method="ListProducts"}
+
