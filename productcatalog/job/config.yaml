@@ -5,7 +5,7 @@ actions:
       - name: "sh.keptn.event.k6-component.triggered"
     tasks:
       - name: "k6-component"
-        maxPollDuration: 900
+        maxPollDuration: 350
         image: hrexed/k6-productcatalog:0.4
         env:
           - name: PROJECT
