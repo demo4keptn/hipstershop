@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  creationTimestamp: null
+  name: productcatalogservice
+spec:
+  gateways:
+  - public-gateway.istio-system
+  - mesh
+  hosts:
+  - productcatalogservice.onlineboutique-staging.34.78.247.174.nip.io
+  - productcatalogservice
+  http:
+  - route:
+    - destination:
+        host: productcatalogservice.onlineboutique-staging.svc.cluster.local
