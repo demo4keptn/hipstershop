@@ -6,7 +6,7 @@ actions:
     tasks:
       - name: "k6-component"
         maxPollDuration: 350
-        image: hrexed/k6-productcatalog:0.5
+        image: hrexed/k6-productcatalog:0.6
         env:
           - name: PROJECT
             value: "$.data.project"
