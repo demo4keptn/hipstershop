@@ -5,7 +5,7 @@ actions:
       - name: "sh.keptn.event.k6.triggered"
     tasks:
       - name: "k6"
-        maxPollDuration: 900
+        maxPollDuration: 650
         args: [ "-u", "50", "-d", "10m" ]
         image: hrexed/k6-onlineboutique:0.1
         env:
