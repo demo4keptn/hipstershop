@@ -7,7 +7,7 @@ actions:
       - name: "k6"
         maxPollDuration: 650
         args: [ "-u", "50", "-d", "10m" ]
-        image: hrexed/k6-onlineboutique:0.1
+        image: hrexed/k6-onlineboutique:0.2
         env:
           - name: FRONTEND_ADDR
             value: "onlineboutique.34.120.85.152.nip.io"
