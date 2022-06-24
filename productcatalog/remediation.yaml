@@ -14,4 +14,10 @@ spec:
         - action: scaling
           name: scaling
           description: Scale up
+          value: "2"
+    - problemType: default
+      actionsOnOpen:
+        - action: scaling
+          name: scaling
+          description: Scale up
           value: "1"
