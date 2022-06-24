@@ -4,11 +4,19 @@ comparison:
   include_result_with_score: "pass"
   aggregate_function: avg
 objectives:
+  - sli: errors
+    displayName: "Error rate"
+    pass:
+      - criteria:
+          - "<=5"
+    warning:
+      - criteria:
+          - "<=10"
   - sli: http_response_time_seconds_main_page
     displayName: "HTTP  main page Response Time"
     pass:
       - criteria:
-          - "<=1000"
+          - "<=100"
     warning:
       - criteria:
           - "<=1500"
