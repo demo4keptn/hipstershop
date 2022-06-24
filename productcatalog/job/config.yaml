@@ -10,7 +10,7 @@ actions:
         image: hrexed/k6-onlineboutique:0.3
         env:
           - name: FRONTEND_ADDR
-            value: "onlineboutique.34.120.85.152.nip.io"
+            value: "onlineboutique.34.78.247.174.nip.io"
             valueFrom: string
           - name: K6_PROMETHEUS_REMOTE_URL
             value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
