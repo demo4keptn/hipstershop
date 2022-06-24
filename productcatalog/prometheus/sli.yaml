@@ -2,6 +2,6 @@
 spec_version: '1.0'
 indicators:
   http_response_time_seconds_main_page: k6_http_req_duration_p95{method="GET",url=~"http://onlineboutique.*.nip.io/"}
-  http_response_time_seconds_checkout_page: k6_http_req_duration_p95{method="GET",url=~"http://onlineboutique.*.nip.io/cart/checkout"}
-  http_response_time_seconds_product_page: k6_http_req_duration_p95{method="GET",url=~"http://onlineboutique.*.nip.io/product.*"}
+  http_response_time_seconds_checkout_page: k6_http_req_duration_p95{method="POST", url=~"http://onlineboutique.*.nip.io/cart/checkout"}
+  http_response_time_seconds_product_page: avg(k6_http_req_duration_p95{method="GET",url=~"http://onlineboutique.*.nip.io/product.*"})
   errors: (sum(k6_http_req_failed)/sum(k6_http_reqs))*100
