@@ -6,7 +6,6 @@ actions:
     tasks:
       - name: "k6"
         maxPollDuration: 650
-        args: [ "-u", "50", "-d", "10m" ]
         image: hrexed/xk6-dynatrace-test:0.2
         env:
           - name: FRONTEND_ADDR
