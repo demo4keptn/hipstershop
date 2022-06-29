@@ -6,15 +6,12 @@ actions:
     tasks:
       - name: "k6"
         maxPollDuration: 650
-        image: hrexed/xk6-dynatrace-test:0.4
         args: [ "-u", "50", "-d", "10m" ]
+        image: hrexed/k6-onlineboutique:0.3
         env:
           - name: FRONTEND_ADDR
             value: "onlineboutique.34.78.247.174.nip.io"
             valueFrom: string
-          - name: K6_DYNATRACE_URL
-            value: https://bix24852.dev.dynatracelabs.com
-            valueFrom: string
-          - name: K6_DYNATRACE_APITOKEN
-            value: dt0c01.R26V3Q3HVRHUCSTWJ66STUYM.BLP3EU2FTNBL5GBAC42S7TBGOJRCAYFSV7BGFJAM7RU7QJKR6GOCJAITLLSX5CIA
+          - name: K6_PROMETHEUS_REMOTE_URL
+            value: http://prometheus-kube-prometheus-prometheus.default.svc.cluster.local:9090/api/v1/write
             valueFrom: string
