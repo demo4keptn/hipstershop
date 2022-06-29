@@ -6,7 +6,7 @@ actions:
     tasks:
       - name: "k6"
         maxPollDuration: 650
-        image: hrexed/xk6-dynatrace-test:0.2
+        image: hrexed/xk6-dynatrace-test:0.3
         env:
           - name: FRONTEND_ADDR
             value: "onlineboutique.34.78.247.174.nip.io"
